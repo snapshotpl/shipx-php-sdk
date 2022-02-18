@@ -29,6 +29,9 @@ jobs:
     integration:
         name: "Integration"
         runs-on: "ubuntu-20.04"
+        env:
+            SHIPX_AUTH_TOKEN: ${{ secrets.SHIPX_AUTH_TOKEN }}
+            SHIPX_ORGANIZATION_ID: ${{ secrets.SHIPX_ORGANIZATION_ID }}
         strategy:
             matrix:
                 php-version:
