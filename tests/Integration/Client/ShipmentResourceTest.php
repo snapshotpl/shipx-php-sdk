@@ -591,7 +591,7 @@ class ShipmentResourceTest extends TestCase
             }
         }
         if (!$shipment) {
-            throw new Notice('Unable to load shipment.');
+            throw new \Exception('Unable to load shipment.');
         }
         return $shipment;
     }
@@ -635,7 +635,7 @@ class ShipmentResourceTest extends TestCase
             }
         }
         if (count($shipmentBatch->shipments) !== $itemsCount) {
-            throw new Notice('Unable to load shipments.');
+            throw new \Exception('Unable to load shipments.');
         }
         return $shipmentBatch;
     }
