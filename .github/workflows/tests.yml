@@ -32,6 +32,9 @@ jobs:
         env:
             SHIPX_AUTH_TOKEN: ${{ secrets.SHIPX_AUTH_TOKEN }}
             SHIPX_ORGANIZATION_ID: ${{ secrets.SHIPX_ORGANIZATION_ID }}
+            SHIPX_BASE_URI: https://sandbox-api-shipx-pl.easypack24.net
+            WAIT_FOR_ASYNC: 1
+            DEBUG_ENABLED: 0
         strategy:
             matrix:
                 php-version:
