@@ -53,7 +53,7 @@ class RequestFactory
             if (!array_key_exists($param, $uriParams)) {
                 throw new InvalidArgumentException(sprintf('Value for "%s" param is missing.', $param));
             }
-            $uri = str_replace(':' . $param, $uriParams[$param], $uri);
+            $uri = str_replace(':' . $param, (string) $uriParams[$param], $uri);
         }
         $this->validateQueryParams($queryParams, $method);
         $query = http_build_query($queryParams);
