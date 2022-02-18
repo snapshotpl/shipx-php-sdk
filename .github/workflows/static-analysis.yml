@@ -26,7 +26,7 @@ jobs:
                 run: composer update --no-interaction --no-progress
             -   name: "PHPStan"
                 run: vendor/bin/phpstan analyse --memory-limit=-1 --no-progress --level=6 src tests
-    phpstan:
+    phpcs:
         name: "PHP CS"
         runs-on: "ubuntu-20.04"
         strategy:
