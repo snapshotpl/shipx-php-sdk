@@ -44,6 +44,10 @@ class ErrorProcessor extends AbstractJsonContentProcessor
             }
             return null;
         }
+        $data['status'] ??= $httpResponse->getStatusCode();
+        $data['error'] ??= $httpResponse->getReasonPhrase();
+        $data['message'] ??= $data['error'];
+
         return new Error($data);
     }
 }
