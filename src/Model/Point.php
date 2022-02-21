@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyFields)

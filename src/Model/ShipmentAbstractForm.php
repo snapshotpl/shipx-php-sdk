@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 abstract class ShipmentAbstractForm extends DataTransferObject
 {
@@ -18,8 +20,9 @@ abstract class ShipmentAbstractForm extends DataTransferObject
     public ?TransactionPartyForm $sender;
 
     /**
-     * @var \MB\ShipXSDK\Model\ParcelsSimple[]
+     * @var ParcelsSimple[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ParcelsSimple::class)]
     public array $parcels = [];
 
     public ?ShipmentCustomAttributes $custom_attributes;

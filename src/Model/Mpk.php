@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Model;
 
 use DateTime;
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
 
 class Mpk extends DataTransferObject
 {

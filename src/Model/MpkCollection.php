@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class MpkCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\Mpk[]
+     * @var Mpk[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Mpk::class)]
     public array $items;
 }

@@ -10,7 +10,9 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Model;
 
 use DateTime;
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class ShipmentBatch extends DataTransferObject
 {
@@ -21,8 +23,9 @@ class ShipmentBatch extends DataTransferObject
     public string $status;
 
     /**
-     * @var \MB\ShipXSDK\Model\ShipmentSimple[]
+     * @var ShipmentSimple[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ShipmentSimple::class)]
     public array $shipments;
 
     public DateTime $created_at;

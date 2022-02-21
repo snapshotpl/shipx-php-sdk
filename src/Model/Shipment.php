@@ -10,7 +10,9 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Model;
 
 use DateTime;
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyFields)
@@ -24,8 +26,9 @@ class Shipment extends DataTransferObject
     public string $status;
 
     /**
-     * @var \MB\ShipXSDK\Model\ParcelsSimple[]
+     * @var ParcelsSimple[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ParcelsSimple::class)]
     public array $parcels;
 
     /**
@@ -64,15 +67,17 @@ class Shipment extends DataTransferObject
     public ?string $tracking_number;
 
     /**
-     * @var \MB\ShipXSDK\Model\Offer[]
+     * @var Offer[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Offer::class)]
     public array $offers;
 
     public ?Offer $selected_offer;
 
     /**
-     * @var \MB\ShipXSDK\Model\Transaction[]
+     * @var Transaction[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Transaction::class)]
     public ?array $transactions;
 
     public ?bool $end_of_week_collection;

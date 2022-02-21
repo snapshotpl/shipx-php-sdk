@@ -9,12 +9,15 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class ShipmentOfferCollectionForm extends DataTransferObject
 {
     /**
-     * @var \MB\ShipXSDK\Model\ShipmentOfferItemForm[]
+     * @var ShipmentOfferItemForm[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ShipmentOfferItemForm::class)]
     public array $shipments = [];
 }

@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class UserCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\User[]
+     * @var User[]
      */
+    #[CastWith(ArrayCaster::class, itemType: User::class)]
     public array $items;
 }

@@ -9,14 +9,17 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class StatusCollection extends DataTransferObject
 {
     public string $href;
 
     /**
-     * @var \MB\ShipXSDK\Model\Status[]
+     * @var Status[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Status::class)]
     public array $items;
 }

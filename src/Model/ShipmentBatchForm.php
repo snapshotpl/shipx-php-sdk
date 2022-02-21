@@ -9,14 +9,17 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
-use Spatie\DataTransferObject\DataTransferObject;
+use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class ShipmentBatchForm extends DataTransferObject
 {
     public bool $only_choice_of_offer = false;
 
     /**
-     * @var \MB\ShipXSDK\Model\ShipmentBatchItemForm[]
+     * @var ShipmentBatchItemForm[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ShipmentBatchItemForm::class)]
     public array $shipments = [];
 }

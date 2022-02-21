@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class DispatchPointCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\DispatchPoint[]
+     * @var DispatchPoint[]
      */
+    #[CastWith(ArrayCaster::class, itemType: DispatchPoint::class)]
     public array $items;
 }
