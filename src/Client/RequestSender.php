@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Client;
 
-use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Discovery\Psr18ClientDiscovery;
 use MB\ShipXSDK\Exception\HttpClientException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
@@ -21,30 +19,15 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 use function json_encode;
 
-class RequestSender implements RequestSenderInterface
+final class RequestSender implements RequestSenderInterface
 {
-    private ClientInterface $httpClient;
-
-    private RequestFactoryInterface $requestFactory;
-
-    private StreamFactoryInterface $streamFactory;
-
     private ?RequestInterface $lastHttpRequest;
 
-    /**
-     * @param                                ClientInterface|null         $httpClient
-     * @param                                RequestFactoryInterface|null $requestFactory
-     * @param                                StreamFactoryInterface|null  $streamFactory
-     * @SuppressWarnings(PHPMD.StaticAccess)
-     */
     public function __construct(
-        ?ClientInterface $httpClient = null,
-        ?RequestFactoryInterface $requestFactory = null,
-        ?StreamFactoryInterface $streamFactory = null
+        private ClientInterface $httpClient,
+        private RequestFactoryInterface $requestFactory,
+        private StreamFactoryInterface $streamFactory
     ) {
-        $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
-        $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
-        $this->streamFactory = $streamFactory ?? Psr17FactoryDiscovery::findStreamFactory();
     }
 
     public function send(string $httpMethod, string $uri, array $headers, array $payload): ResponseInterface

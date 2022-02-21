@@ -18,30 +18,19 @@ use MB\ShipXSDK\Response\ResponseFactory;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class Client
+final class Client
 {
-    private string $baseUri;
-
-    private ?string $authToken;
-
-    private RequestSenderInterface $requestSender;
-
     private RequestFactory $requestFactory;
-
     private ResponseFactory $responseFactory;
-
     private ?ResponseInterface $lastHttpResponse;
 
     public function __construct(
-        string $baseUri,
-        ?string $authToken = null,
-        ?RequestSenderInterface $requestSender = null,
+        private string $baseUri,
+        private ?string $authToken,
+        private RequestSenderInterface $requestSender,
         ?RequestFactory $requestFactory = null,
         ?ResponseFactory $responseFactory = null
     ) {
-        $this->baseUri = $baseUri;
-        $this->authToken = $authToken;
-        $this->requestSender = $requestSender ?? new RequestSender();
         $this->requestFactory = $requestFactory ?? new RequestFactory();
         $this->responseFactory = $responseFactory ?? new ResponseFactory();
     }
