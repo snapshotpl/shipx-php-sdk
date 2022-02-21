@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Response;
 
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
 class Response
 {

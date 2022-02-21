@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Response\HttpResponseProcessor;
 
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Method\MethodInterface;
 use MB\ShipXSDK\Response\Response;
 use Psr\Http\Message\ResponseInterface;

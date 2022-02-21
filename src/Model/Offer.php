@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Model;
 
 use DateTime;
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
 class Offer extends DataTransferObject
 {
