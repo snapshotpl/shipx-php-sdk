@@ -9,7 +9,10 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Test\Integration\Client;
 
+use Laminas\Diactoros\RequestFactory;
+use Laminas\Diactoros\StreamFactory;
 use MB\ShipXSDK\Client\Client;
+use MB\ShipXSDK\Client\RequestSender;
 use MB\ShipXSDK\Test\Integration\Config;
 
 /**
@@ -20,9 +23,15 @@ class ClientFactory
     public function create(bool $withAuthToken): Client
     {
         $baseUri = Config::getBaseUri();
-        if ($withAuthToken) {
-            return new Client($baseUri, Config::getAuthToken());
-        }
-        return new Client($baseUri, null);
+
+        return new Client(
+            $baseUri,
+            $withAuthToken ? Config::getAuthToken() : null,
+            new RequestSender(
+                new \GuzzleHttp\Client(),
+                new RequestFactory(),
+                new StreamFactory(),
+            ),
+        );
     }
 }
