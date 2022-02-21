@@ -11,6 +11,8 @@ namespace MB\ShipXSDK\Model;
 
 use DateTime;
 use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class DispatchOrder extends DataTransferObject
 {
@@ -27,12 +29,14 @@ class DispatchOrder extends DataTransferObject
     public Address $address;
 
     /**
-     * @var \MB\ShipXSDK\Model\ShipmentSimple[]
+     * @var ShipmentSimple[]
      */
+    #[CastWith(ArrayCaster::class, itemType: ShipmentSimple::class)]
     public array $shipments;
 
     /**
-     * @var \MB\ShipXSDK\Model\Comment[]
+     * @var Comment[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Comment::class)]
     public array $comments;
 }

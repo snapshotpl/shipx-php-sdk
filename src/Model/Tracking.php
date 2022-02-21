@@ -11,6 +11,8 @@ namespace MB\ShipXSDK\Model;
 
 use DateTime;
 use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class Tracking extends DataTransferObject
 {
@@ -29,8 +31,9 @@ class Tracking extends DataTransferObject
     public DateTime $updated_at;
 
     /**
-     * @var \MB\ShipXSDK\Model\TrackingDetails[]
+     * @var TrackingDetails[]
      */
+    #[CastWith(ArrayCaster::class, itemType: TrackingDetails::class)]
     public array $tracking_details;
 
     public array $expected_flow;

@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class DispatchOrderCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\DispatchOrder[]
+     * @var DispatchOrder[]
      */
+    #[CastWith(ArrayCaster::class, itemType: DispatchOrder::class)]
     public array $items;
 }

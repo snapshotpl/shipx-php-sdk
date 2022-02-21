@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Model;
 
 use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
 
 class DispatchOrderPriceList extends DataTransferObject
 {
@@ -20,8 +22,9 @@ class DispatchOrderPriceList extends DataTransferObject
     public Price $total_price;
 
     /**
-     * @var \MB\ShipXSDK\Model\DispatchOrderPriceListItem[]
+     * @var DispatchOrderPriceListItem[]
      */
+    #[CastWith(ArrayCaster::class, itemType: DispatchOrderPriceListItem::class)]
     public array $price_list;
 
     /**

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Client;
 
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Method\MethodInterface;
 use MB\ShipXSDK\Method\WithAuthorizationInterface;
 use MB\ShipXSDK\Request\RequestFactory;

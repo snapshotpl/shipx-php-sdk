@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class OrganizationCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\Organization[]
+     * @var Organization[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Organization::class)]
     public array $items;
 }

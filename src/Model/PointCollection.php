@@ -9,11 +9,15 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Model;
 
+use Spatie\DataTransferObject\Attributes\CastWith;
+use Spatie\DataTransferObject\Casters\ArrayCaster;
+
 class PointCollection extends AbstractCollection
 {
     /**
-     * @var \MB\ShipXSDK\Model\Point[]
+     * @var Point[]
      */
+    #[CastWith(ArrayCaster::class, itemType: Point::class)]
     public array $items;
 
     public int $total_pages;

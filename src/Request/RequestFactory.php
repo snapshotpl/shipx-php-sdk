@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Request;
 
 use InvalidArgumentException;
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Exception\InvalidQueryParamsException;
 use MB\ShipXSDK\Method\MethodInterface;
 use MB\ShipXSDK\Method\WithAuthorizationInterface;
