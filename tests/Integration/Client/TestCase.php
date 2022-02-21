@@ -10,11 +10,11 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Test\Integration\Client;
 
 use MB\ShipXSDK\Client\Client;
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Model\BinaryContent;
 use MB\ShipXSDK\Model\Error;
 use MB\ShipXSDK\Response\Response;
 use MB\ShipXSDK\Test\Integration\Config;
+use Spatie\DataTransferObject\DataTransferObject;
 
 /**
  * @SuppressWarnings(PHPMD.StaticAccess)
