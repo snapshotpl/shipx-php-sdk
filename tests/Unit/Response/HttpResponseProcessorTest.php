@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Test\Unit\Response;
 
 use InvalidArgumentException;
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Method\MethodInterface;
 use MB\ShipXSDK\Model\BinaryContent;
 use MB\ShipXSDK\Model\Error;
@@ -35,6 +34,7 @@ use MB\ShipXSDK\Test\Unit\Stub\ProcessorReturningSimpleResponse;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
+use Spatie\DataTransferObject\DataTransferObject;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)

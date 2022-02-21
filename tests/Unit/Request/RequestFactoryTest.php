@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace MB\ShipXSDK\Test\Unit\Request;
 
 use InvalidArgumentException;
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
 use MB\ShipXSDK\Exception\InvalidQueryParamsException;
 use MB\ShipXSDK\Method\MethodInterface;
 use MB\ShipXSDK\Method\WithSortableResultsInterface;
@@ -30,6 +29,7 @@ use MB\ShipXSDK\Test\Unit\Stub\MethodWithUriParams;
 use MB\ShipXSDK\Test\Unit\Stub\ModelWithFooBarSimpleProperties;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Spatie\DataTransferObject\DataTransferObject;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)

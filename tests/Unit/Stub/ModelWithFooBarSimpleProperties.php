@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace MB\ShipXSDK\Test\Unit\Stub;
 
-use MB\ShipXSDK\DataTransferObject\DataTransferObject;
+use Spatie\DataTransferObject\DataTransferObject;
 
 class ModelWithFooBarSimpleProperties extends DataTransferObject
 {
